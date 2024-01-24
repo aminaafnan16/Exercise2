@@ -1,0 +1,118 @@
+---
+title: "Ex2Solution.Rmd"
+output: word_document
+date: "2024-01-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Table Creation Using Markdown
+| Employer    | WorkingDays |
+| :---------- | ----------: |
+| Lisa        | 45          |
+| Ron         | 89          |
+| Jay         | 12          |
+| Liam        | 36          |
+
+
+#### Attaching a Hyperlink
+[My Github website](https://github.com/aminaafnan16)
+
+#### Inserting an Image
+![Dolphin Image](C/Users/amina/OneDrive/Pictures/dolphin.jpg)
+
+#### Questions about Functions in R
+
+1. **Define what a function is in the context of R.**
+* The functions in the R programming, is a set of statements that are arranged or organized together to execute particular calculation or task.The R, allows the functions to break the code into smaller components which eventually helps us to understand  and maintain and potentially reuse the code.
+
+2. **Explain the process of defining a function in R.**
+In R, a function is created by using a keyword called "function". The syntax that represent the function's body:
+```{r eval=FALSE}
+my_function = function(argument1,argument2.......){
+function body
+}
+```
+So from the above syntax,the function name is given in order to easily identify and call the function later in the code. Next, the functions can take the parameters in which the values are passed to the function. Usually this is specified within the parenthesis which is followed by the function name. The function body is enclosed in the curly braces where it contains the code in which you provide instructions for the particular task for the function to carry out.
+
+
+3. **Discuss the significance of the `return` statement in R functions.**
+* The "return" statement in the R, is explicitly used for specifying the value that the function should return, which means that when the function reaches to return statement then it immediately  sends the specific value back to the piece of code that it was asked for. The return statement is useful as it will help when you are in need to stop the function early or maybe if any condition is met then it can send back the particular value back.
+
+
+4. **Explore the differences between global and local variables within R functions.**
+* LOCAL VARIABLE:
+These variables are defined within the function which is only accessible within the function. They have local scope which has meaning which exist only within the specific function where they are defined and it is not accessible outside the particular function.
+GLOBAL VARIABLE:
+Unlike local variables, the global variables are defined outside any function which can be accessed and modified from anywhere in the code . They have global scope which means that they are visible to all the functions and the code.
+
+5. **Demonstrate how to pass arguments to a function in R.**
+
+An argument can be passed to a function only by specifying them within the function's parenthesis, when the function is called.
+let's explain this with the help of an example.
+```{r eval=FALSE}
+#first we have to define the function so that it can take the arguments
+subtract_num = function(a,b){
+result = a-b
+return(result)
+}
+#now we are calling the function and passing the argument
+sub_result = subtract_num(15,3)
+print(sub_result)
+```
+Explanation:
+The subtract_num is the function that is taking two arguments i.e., a and b, so when we are calling the function subtract_num(15,3) we are passing those values as arguments for the a and b. Lastly, the function then subtracts these two vlaues together and gives a result which is stored in the sub_result which eventually print the result in the console. 
+
+
+6. **Provide an example of a built-in function in R and describe its purpose.**
+
+Expample for the built function:
+```{r eval=FALSE}
+a = 10
+str(a)
+```
+So here we are using the "str" built in function. The str() function displays information of the object such as dataframes, lists or any other complex data structures which will help in understanding the content and organising the data.
+
+7. **Examine the importance of the `apply` family of functions in R.**
+
+*The "apply" family of functions is crucial in the R programming as it promotes more concise way to apply the functions that allow crossing the data in various ways which helps in avoiding explicit use of loop constructs.
+
+8. **Choose a specific built-in function in R and explain its purpose. Provide an example demonstrating how to use this function with relevant arguments and showcase the expected output. Additionally, discuss the significance of this function within the broader context of data analysis in R.**
+```{r eval=FALSE}
+a = c(9,8,7,6,5)
+b = c(1,2,3,4,6)
+correlation = cor(a,b)
+print(correlation)
+```
+the cor() function helps in asseccing the direction of relationship among the numeric variables. It also helps in visualising, better understanding of data structures, decision making.
+
+9. **Discuss strategies for handling missing values within an R function.**
+* Handling missing values is important during the data analysis as it implicates the strategy and specific approach for the problem in handling the missing value. Through this we can check missing values by using functions such as anyNA(), also it helps in removing, inputting missing values which eventually helps in getting through the proper data analysis. 
+
+10. **Investigate the role of the `source()` function in executing R scripts.**
+* The source() function is used to execute the R scripts by providing proper meaning to the structure code also it also enhances the efficiency of R code.
+
+#### Advanced User-Defined Function
+
+```{r eval=FALSE}
+# Advanced function incorporating loops and conditionals
+fibonacci = function(number){
+x = 0
+y = 1
+while (y<number){
+temp = y
+y = x+y
+x = temp
+}
+if (y == number){
+return(paste(number, "is a fibonacci number."))
+}
+else{
+return(paste(number,"is not a fibonacci number"))
+}
+}
+result = fibonacci(18)
+print(result)
+```
